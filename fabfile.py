@@ -30,10 +30,13 @@ from fabric.api import *
 def query_data_entities():
     print(env.user)
     sql = 'psql -U pasta -d pasta -h localhost -c "copy (select ' \
-          'resource_location,package_id,' \
+          'resource_id,resource_location,package_id,' \
           'entity_id,sha1_checksum,resource_size from ' \
-          'datapackagemanager.resource_registry where resource_type=\'data\') to stdout with csv" > /tmp/data_entities.csv'
+          'datapackagemanager.resource_registry where ' \
+          'resource_type=\'data\') to stdout with csv" > ' \
+          '/tmp/data_entities.csv'
     run(sql)
+    get('/tmp/data_entities.csv')
 
 
 def size_compare():
