@@ -20,7 +20,17 @@ logging.getLogger('').setLevel(logging.WARN)
 logger = logging.getLogger('list_data_entities')
 
 
+import sys
+
+
+def list_data_entities(sql_dump_file = None):
+    lines = [line.rstrip('\n') for line in open(sql_dump_file)]
+    return lines
+
 def main():
+
+    list_data_entities(sys.argv[1])
+
     return 0
 
 
