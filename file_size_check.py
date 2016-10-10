@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """:Mod: file_size_check
+    Perform file system level check against file sizes for data entity resources
+    found in PASTA's resource registry.
 
 :Synopsis:
 
